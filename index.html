@@ -20,7 +20,7 @@ layout: default
   
   <h1 class="page-heading">User Selection</h1>
   <p>
-    The group of diagnosed users is made of users who (1) have a post containing a <a href="{{site.giturl}}/user_selection/diagpatterns_positive.txt">high-precision diagnosis pattern</a> (e.g., "I was diagnosed with") and a mention of depression, and (2) do not match any exclusion conditions.
+    The group of diagnosed users is made of users who (1) have a post containing a <a href="{{site.giturl}}/tree/master/user_selection/diagpatterns_positive.txt">high-precision diagnosis pattern</a> (e.g., "I was diagnosed with") and a mention of depression, and (2) do not match any exclusion conditions.
     <br/><br/>
     
     Exclusion conditions apply at both the user level and at the post level. At the user level, any users who did not have at least 100 posts in non-mental health subreddits before their self-reported diagnosis post were excluded. Two exclusion conditions applied at the post level.
@@ -32,7 +32,7 @@ layout: default
         </span>
       </li>
       
-      <li>Posts that matched a <a href="{{site.giturl}}/user_selection/diagpatterns_negative.txt">negative diagnosis pattern</a> were ignored (e.g., "mother was diagnosed with").</li>
+      <li>Posts that matched a <a href="{{site.giturl}}/tree/master/user_selection/diagpatterns_negative.txt">negative diagnosis pattern</a> were ignored (e.g., "mother was diagnosed with").</li>
     </ol>
 
     Users who both matched a diagnosis pattern and did not match any exclusion condition were considered for inclusion.
@@ -41,8 +41,8 @@ layout: default
   </p>
 
   <p>
-    We define a <i>MH post</i> to be any post that was made to a <a href="{{site.giturl}}/user_selection/mh_subreddits.txt">subreddit related to mental health</a>
-    or that matched a <a href="{{site.giturl}}/user_selection/mh_patterns.txt">MH pattern</a>. All of the diagnosed users' depression posts were removed.
+    We define a <i>MH post</i> to be any post that was made to a <a href="{{site.giturl}}/tree/master/user_selection/mh_subreddits.txt">subreddit related to mental health</a>
+    or that matched a <a href="{{site.giturl}}/tree/master/user_selection/mh_patterns.txt">MH pattern</a>. All of the diagnosed users' depression posts were removed.
     Users with no depression posts are candidate control users.
   </p>
   
