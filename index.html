@@ -1,0 +1,138 @@
+---
+layout: default
+---
+
+<div class="home">
+
+  <h1 class="page-heading">Overview</h1>
+  <p>
+  The RSDD (Reddit Self-reported Depression Diagnosis) dataset
+  consists of Reddit posts for approximately 9,000 users who have claimed
+  to have been diagnosed with depression ("diagnosed users") and approximately
+  107,000 matched control users. All posts made to mental health-related subreddits or containing
+  keywords related to depression were removed from the diagnosed users' data;
+  control users' data do not contain such posts due to the selection process.
+  </p>
+
+  <p>
+    Further dataset construction details are available below and in Section 3.1 of the EMNLP 2017 paper <a href="{{site.paperurl}}">Depression and Self-Harm Risk Assessment in Online Forums</a>.
+  </p>
+  
+  <h1 class="page-heading">User Selection</h1>
+  <p>
+    The group of diagnosed users is made of users who (1) have a post containing a <a href="{{site.giturl}}/user_selection/diagpatterns_positive.txt">high-precision diagnosis pattern</a> (e.g., "I was diagnosed with") and a mention of depression, and (2) do not match any exclusion conditions.
+    <br/><br/>
+    
+    Exclusion conditions apply at both the user level and at the post level. At the user level, any users who did not have at least 100 posts in non-mental health subreddits before their self-reported diagnosis post were excluded. Two exclusion conditions applied at the post level.
+    <ol>
+      <li>The mention of depression was required to be no more than 80 characters away from the part of the post matching a diagnosis pattern; posts that did not satisfy this constraint were ignored.
+        <br/>
+        <span style="font-size: small">
+          A mention of depression is defined as the occurrence of one of the following strings: "depression", "depresion", "depressive disorder", "major depressive", or "mild depressive".
+        </span>
+      </li>
+      
+      <li>Posts that matched a <a href="{{site.giturl}}/user_selection/diagpatterns_negative.txt">negative diagnosis pattern</a> were ignored (e.g., "mother was diagnosed with").</li>
+    </ol>
+
+    Users who both matched a diagnosis pattern and did not match any exclusion condition were considered for inclusion.
+    Crowdsourced annotators were asked to view the posts matching a diagnosis pattern and indicate whether the user
+    was truly claiming to have been diagnosed with depression.
+  </p>
+
+  <p>
+    We define a <i>MH post</i> to be any post that was made to a <a href="{{site.giturl}}/user_selection/mh_subreddits.txt">subreddit related to mental health</a>
+    or that matched a <a href="{{site.giturl}}/user_selection/mh_patterns.txt">MH pattern</a>. All of the diagnosed users' depression posts were removed.
+    Users with no depression posts are candidate control users.
+  </p>
+  
+  <p>
+    Control users were chosen by matching candidate control users with diagnosed users.
+    Each diagnosed user was greedily
+    matched with the 12 control users who had the
+    smallest Hellinger distance between the diagnosed
+    user's and the control user's subreddit post probability distributions, excluding control users with
+    10% more or fewer posts than the diagnosed user.
+  </p>
+
+  <h1 class="page-heading">Statistics</h1>
+  <p>
+    This process yielded 9,210 diagnosed users, which were split into training, validation, and testing sets
+    along with the diagnosed users' matched controls.
+  <table style="width: 50%; border-collapse: collapse; margin-left: auto; margin-right: auto">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Diagnosed Users</th>
+        <th>Control Users</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Training</td>
+        <td>3,070</td>
+        <td>35,753</td>
+      </tr>
+      <tr>
+        <td>Validation</td>
+        <td>3,070</td>
+        <td>35,746</td>
+      </tr>
+      <tr style="border-bottom: 3px solid #e5e5e5">
+        <td>Testing</td>
+        <td>3,070</td>
+        <td>35,775</td>
+      </tr>
+      <tr>
+        <td>Total</td>
+        <td>9,210</td>
+        <td>107,274</td>
+      </tr>
+    </tbody>
+  </table>
+  </p>
+
+  <p>
+    <br/>
+    Both the number of posts made by each user and the length of each post vary widely, as shown below.
+  <figure>
+    <a href="{{site.baseurl}}/cdf_postcount.png"><img src="{{site.baseurl}}/cdf_postcount.png" width="360px" /></a>
+    <figcaption>
+      Empirical CDF of the number of posts per user
+    </figcaption>
+  </figure>
+
+  <figure>
+    <a href="{{site.baseurl}}/cdf_postlen.png"><img src="{{site.baseurl}}/cdf_postlen.png" width="360px" /></a>
+    <figcaption>
+      Empirical CDF of the length of posts in tokens
+    </figcaption>
+  </figure>
+  </p>
+
+  <h1 class="page-heading">Obtaining the data</h1>
+  <p>
+  The RSDD dataset contains only publicly available Reddit posts.
+  Posts may contain information related to users' health, however,
+  and are thus sensitive. To protect users' privacy,
+  researchers who wish to obtain the dataset must sign a data usage agreement.
+  </p>
+  
+  <p>
+  Succinctly, the agreement requires that researchers
+  <ul>
+    <li>make no attempt to contact any user in the dataset</li>
+    <li>make no attempt to deanonymize or learn the identity of any user in the dataset</li>
+    <li>make no attempt to link users in the dataset with any external information (e.g., an account on another website)</li>
+    <li>do not share any portion of the data, including example posts or excerpts from posts, with any other party</li>
+  </ul>
+  </p>
+
+  <p>
+  Researchers interested in obtaining the RSDD dataset may submit a
+  <a href="{{site.requrl}}">data request form</a> to be provided
+  with the data usage agreement and further information on obtaining the data.
+  </p>
+
+
+</div>

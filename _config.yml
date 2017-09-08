@@ -1,0 +1,11 @@
+markdown: kramdown
+
+title: "Reddit Self-reported Depression Diagnosis (RSDD) dataset"
+description: "Reddit Self-reported Depression Diagnosis (RSDD) dataset"
+
+baseurl: "/emnlp17-depression"
+url: "https://Georgetown-IR-Lab.github.io"
+
+paperurl: "https://arxiv.org/abs/1709.01848"
+requrl: "https://goo.gl/forms/XCqdkTlNLgbNGOXj1"
+giturl: "https://github.com/Georgetown-IR-Lab/emnlp17-depression"
