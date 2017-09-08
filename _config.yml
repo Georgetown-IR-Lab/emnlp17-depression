@@ -9,3 +9,5 @@ url: "https://Georgetown-IR-Lab.github.io"
 paperurl: "https://arxiv.org/abs/1709.01848"
 requrl: "https://goo.gl/forms/XCqdkTlNLgbNGOXj1"
 giturl: "https://github.com/Georgetown-IR-Lab/emnlp17-depression"
+
+theme: jekyll-theme-minimal
