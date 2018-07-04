@@ -14,10 +14,11 @@ if len(sys.argv) != 2:
 weightsfn = sys.argv[1]    
 
 def fn_model(fn, stype='testing'):
+    # parse config options to use (except for LR, which conflicts with the . param separator)
     p = dict([x.split(":") for x in os.path.dirname(fn.replace("tmp/w/", "")).replace("lr:0.001.", "").split(".")])
 
-    strk = ['af', 'ptype']
-    boolk = ['w2v', 'randposts', 'noempty', 'etrain', 'balbatch', 'cosine']
+    strk = ['af', 'ptype'] # force string conversion
+    boolk = ['w2v', 'randposts', 'noempty', 'etrain', 'balbatch', 'cosine'] # force bool conversion
     for k in p:
         if k == 'prep':
             if p[k].lower() == 'none':
@@ -40,7 +41,7 @@ def fn_model(fn, stype='testing'):
                       force_full=True, mintf=p['mintf'], mindf=p['mindf'],
                       noempty=p['noempty'], prep=p['prep'], batch_size=9999999999)
     for i, (X, y) in enumerate(genf()):
-        assert i == 0
+        assert i == 0, "test set should contain only one batch (and it should not be sampled)"
     val_X, val_y = X, categorical_probas_to_classes(y)
     
     y_pred = categorical_probas_to_classes(model.predict(val_X, batch_size=32))

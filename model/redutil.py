@@ -17,29 +17,29 @@ from keras.callbacks import Callback
 
 
 def config():
-    max_posts = 400
-    max_length = 100
-    mintf = 3
-    mindf = 2
-    randposts = False
-    noempty = False
-    prep = None
+    max_posts = 400 # maximum posts per user
+    max_length = 100 # maximum tokens per post
+    mintf = 3 # min term frequency for tokens
+    mindf = 2 # min doc frequency for tokens
+    randposts = False # shuffle posts? (if False, posts will be ordered by date)
+    noempty = False # remove empty posts? (e.g., posts with only a title)
+    prep = None # other post pre-processing (e.g., rev to reverse post order)
     
-    filters = 50
-    filtlen = 3
+    filters = 25 # post CNN filters
+    filtlen = 3 # post CNN n-gram size
     poollen = 25
     ptype = 'acnn'
-    acl = 10
+    acl = 15
     densed = 50
     embed_size = 50
 
-    w2v = False
-    etrain = True
-    epochs = 25
-    batch = 16
-    af = 'relu'
+    w2v = False # initialize embedding layer with pre-trained embeddings
+    etrain = True # embeddings trainable?
+    epochs = 25 # iterations to run for
+    batch = 64 # batch size
+    af = 'relu' # activation function used
     lr = 0.001
-    seed = 123456
+    seed = 123456 # random seed
     cosine = False
     
     

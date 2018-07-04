@@ -28,7 +28,9 @@ ex.captured_out_filter = apply_backspaces_and_linefeeds
 from redutil import datagen, config, ValMetrics
 config = ex.config(config)
 
+
 def build_model(p):
+    """ build a Keras model using the parameters in p """
     max_posts = p['max_posts']
     max_length = p['max_length']
     filters = p['filters']
