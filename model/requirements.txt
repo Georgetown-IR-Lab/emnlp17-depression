@@ -1,0 +1,5 @@
+numpy
+scikit-learn
+sacred==0.7.2
+Keras==1.2.2
+tensorflow-gpu
